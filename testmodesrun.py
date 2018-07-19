@@ -1,4 +1,3 @@
-
 from django.utils import timezone
 import pytz
 if __name__ == '__main__':
@@ -74,7 +73,145 @@ if __name__ == '__main__':
     end_index = 6500.00
 
     # Allocate reward
-
-    #
-
+    allocator = BetAllocation(start_index, end_index, up_bettor_ids, up_bets, down_bettor_ids, down_bets)
+    allocator.AllocatePoint()
+    
     print "Program end"
+
+import NumPy as pd
+from enum import Enum     # for enum34, or the stdlib version
+class BetAllocation:
+    """Perform win/lose Allocation"""
+    # All possible outcome
+    Outcome = Enum("UP", "DOWN", "EQUAL")
+    
+    # reward ratio for winner. I.e. winner bet 100, loser bet 500, ratio = 5
+    win_ratio
+    
+    # Data frame of ID/Bet size
+    up_bettors
+    down_bettors
+    
+    def __init__(self):
+        self.data = []
+        
+    def __init__(self, start_index, end_index, up_bettor_ids, up_bets, down_bettor_ids, down_bets):
+        
+        # Create DataFrame
+        self.up_bettors = CreateDF(up_bettor_ids, up_bets)
+        self.down_bettors = CreateDF(down_bettor_ids, down_bets)
+        
+        # Decide outcome
+        self.Outcome = GetOutcome(start_index, end_index)
+        
+        # Compute ratio
+        self.Outcome
+
+    
+    def CreateDF(ids, bets):
+        """Function to create and return list of data.frame
+        """
+        if len(ids) != len(bets):
+            raise ValueError("len(ids) != len(bets)")
+            
+        return pd.DataFrame(user_id=userid, betsize=bets)
+
+    
+    def GetOutcome(start_index, end_index):
+        """Compare index and provide outcome"""
+        try:
+            if(end_index > start_index):
+                return Enum.UP
+            else if(end_index < start_index):
+                return Enum.DOWN
+            else if(end_index == start_index):
+                return Enum.EQUAL
+            else
+                raise ValueError('Unknown outcome. Start_index and end_index compared but no outcome')
+        except:
+            raise ValueError('Unknown outcome. Start_index and end_index not comparable')
+
+
+    def GetWinners():
+        """Return DataFrame of winners"""
+        if Outcome == Enum.UP:
+            return up_bettors
+        else if Outcome == Enum.DOWN:
+            return down_bettors
+        else if Outcome == Enum.EQUAL:
+            return []   #TODO:
+        else:
+            raise TransitionError('Unknown outcome. not sure who is winners')
+           
+           
+    def GetLosers():
+        """Return DataFrame of losers"""
+        if Outcome == Enum.UP:
+            return down_bettors
+        else if Outcome == Enum.DOWN:
+            return up_bettors
+        else if Outcome == Enum.EQUAL:
+            return []   #TODO:
+        else:
+            raise TransitionError('Unknown outcome. not sure who is winners')
+
+
+    def GetTotalRewardBeforeFee():
+        """Reward = Compute total bet put by losers. Return a numeric """
+        loserdf = GetLosers()
+        return userdf['betsize'].sum()
+    
+    
+    def ComputeRatio():
+        """ 
+        Function to compute Ratio and define fees.
+        Define Fee formula here. The better the ratio, the more the fee 
+        """
+        # Compute Ratio first
+        losers_df = GetLosers()
+        winners_df = GetWinners()
+        win_ratio = losers_df.sum()/winners_df = GetWinners()
+    
+      
+    def ComputeFee(ratio):
+        """ 
+        Define Fee formula here. The better the ratio, the more the fee 
+        """
+        if ratio > 100:
+            fee = 0.15
+        else if ratio > 50:
+            fee = 0.10
+        else if ratio > 10:
+            fee = 0.08
+        else if ratio > 2:
+            fee = 0.05
+        else if ratio > 0.9:
+            fee = 0.05
+        else if ratio > 0.5:
+            fee = 0.05
+        else
+            fee = 0.025
+        return fee
+     
+     
+    # TOOD: If draw, think about it
+    def AllocatePoint():
+        """ Main function to compute and allocate points """
+        totalreward_before_fee = GetTotalRewardBeforeFee()
+        
+        ComputeRatio()
+        
+        fee = ComputeFee(win_ratio) 
+        
+        totalreward_after_fee = totalreward_before_fee * (1 - fee)
+        
+        
+        # Distribute the reward according to relative weight
+        winners_df = GetWinners()
+        total_weight = winners_df['betsize'].sum()
+        winners_relative_weight = winners_df['betsize'] / total_weight
+        individual_reward = totalreward_after_fee * winners_relative_weight
+        
+        # save to server
+        
+           
