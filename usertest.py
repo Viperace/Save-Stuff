@@ -82,7 +82,19 @@ def simulate_random_user_bet(renshu):
 			betquota = 0
 		
 		bet_sizes += [betquota]
+
+	# Update user balance, to take away their xcoin as bet
+	for i in renshu:
+		# Check if user has balance available for bet
+		user = Extend_user.objects.get(pk=i)		
+		new_xcoin = int(user.xcoin)-int(bet_sizes[i])
 		
+		# Save new balance if enough. Remove bet from vector if not enough
+		if new_xcoin >= 0:
+			Extend_user.objects.get(pk=i).update(xcoin=new_xcoin)
+		else: 
+			bet_sizes[i] = 0
+			bet_directions[i] = "0"			
 		
 	# Create bet down user list, following the generated sizes
 	down_list = []
