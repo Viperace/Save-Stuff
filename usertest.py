@@ -57,6 +57,60 @@ def cuser():
         User.objects.filter(id=creatuser.id).delete()
 
 
+	
+# VECTORIZE Version
+def simulate_random_user_bet(renshu):
+	# Pre-Generate random bet size and direction first
+	bet_sizes = []
+	bet_directions = []
+	total_up_bet = 0		# Record purpose
+	total_down_bet = 0
+	for i in range(1,renshu):
+		# Gen size (conditional on have bet)
+		betquota=random.randint(100, 3000)
+		
+		# Gen direction
+		roll = random.randint(0, 100)		
+		if roll > 51:      
+			bet_directions += ["up"]
+			total_up_bet += betquota
+		elif roll < 48:
+			bet_directions += ["down"]
+			total_down_bet += betquota
+		else:
+			bet_directions += ["0"]
+			betquota = 0
+		
+		bet_sizes += [betquota]
+		
+		
+	# Create bet down user list, following the generated sizes
+	down_list = []
+	up_list = []
+	for i in renshu:
+		if bet_directions[i] == "up":			
+			indd = Extend_user.objects.get(pk=i)
+			up_list.append(bettingup(
+							userid=indd.ext_user_id,
+							telid=indd.telid,
+							betquota=bet_sizes[i] ))
+							
+		elif bet_directions[i] == "down":
+			indd = Extend_user.objects.get(pk=i)
+			down_list.append(bettingdwon(
+								userid=indd.ext_user_id,
+								telid=indd.telid,
+								betquota=bet_sizes[i]))								
+	# Bulk Update													
+	bettingup.objects.bulk_create(up_list)
+	bettingdwon.objects.bulk_create(down_list)	
+	
+	# Output
+	output = [total_up_bet + total_down_bet, total_up_bet, total_down_bet]
+	
+	return output
+
+
 # 模拟用户下注
 def simulate_random_user_bet(renshu):
     Extend_userdata=Extend_user.objects.all()[:renshu]
@@ -201,3 +255,5 @@ if __name__ == '__main__':
     ##------------------------------------
     ## 清空用户
     # deluser()
+
+# UPDATE function
