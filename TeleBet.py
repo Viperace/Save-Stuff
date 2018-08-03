@@ -29,3 +29,9 @@ def announcement(update):
 		except Exception,e:
 			print e
 		
+
+# Reward allocator, faster version:
+for i in range(0, len(self.winners_df)):
+	winner_id = self.winners_df.iloc[i]['user_id']
+	winner_newcoin = self.winners_df.iloc[i]['coin_to_add']
+	Extend_user.objects.filter(ext_user_id=winner_id).update(xcoin=winner_newcoin)
