@@ -582,6 +582,7 @@ def announce_result(bot, job):
               '\n开' + str(start_index) + ',  结' + str(end_index)
         msg2 = arrow + winners_str
     else:
+        # announce_result(bot, job) # Rerun till you got a result ??
         msg = '...'
         msg2 = '.'
 
