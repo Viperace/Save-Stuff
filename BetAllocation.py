@@ -199,6 +199,7 @@ class BetManager:
                                    userdown=len(self.down_bettors['betSize']),
                                    theodds=0,
                                    quota=total_bet)
+            winning.save()
 
             # TODO: Save banker's history
             #banker_history.objects.create(the_odds=0, fee=0, fee_size=0, bettime=announce_time)
@@ -242,6 +243,7 @@ class BetManager:
                                    userdown=len(self.down_bettors['betSize']),
                                    theodds=win_ratio,
                                    quota=total_bet)
+            winning.save()
 
             # Request server to re-allocate xcoin
             RewardAllocator(winners_df['user_id'], coinsToAdd)
