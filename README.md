@@ -12,3 +12,26 @@ https://stackoverflow.com/questions/49705047/downloading-mutliple-stocks-at-once
 
 # Phone code to country
 https://pypi.org/project/phone-iso3166/
+
+# Fix announce result to use async when send_message
+In main(), add workers
+   updater = Updater(token="xxx", workers=64) 
+
+bring 'send_message' to a different function and add @run_async
+
+for telid in set(all_telid):
+    try:
+        bot.send_message(chat_id=telid, text=msg)
+        bot.send_message(chat_id=telid, text=msg2)
+    except Exception, e:
+        print "Cant send message to this telid " + telid
+
+Change above loop to something like
+for telid in set(all_telid):
+  sendmessage_async(bot, job, telid, msg, msg2)
+
+@run_async
+def sendmessage_async(bot, job, telid, msg1, msg2):
+  bot.send_message(chat_id=telid, text=msg1)
+  bot.send_message(chat_id=telid, text=msg2)
+  
