@@ -14,6 +14,7 @@ https://stackoverflow.com/questions/49705047/downloading-mutliple-stocks-at-once
 https://pypi.org/project/phone-iso3166/
 
 # Fix announce result to use async when send_message
+https://github.com/python-telegram-bot/python-telegram-bot/wiki/Performance-Optimizations
 In main(), add workers
    updater = Updater(token="xxx", workers=64) 
 
