@@ -1,61 +1,74 @@
+import random
+import pandas
+
 has_deployed = False
 
 
 def Initialize_GhostProtocol():
-    """Listen for server annoucnement, and deploy bettor up/down """
+    """Listen for server announcement, and deploy ghost bettor up/down """
     while True:
-        # If result is announced
+		# If at Game_End stage, we may reset
+		at_gamesEnd = str(redisdb.get('gamesEnd')) == "end"
+		if has_deployed and at_gamesEnd:
+			has_deployed = False
+		
+        # If result is announced & and not yet deployed
         result_released = str(redisdb.get('gamesYeid')) == "yes"
         if not has_deployed and result_released:
             has_deployed = True
 
-            # Get result
+            # Peek into result shown in server
             netnumberdata = netnumber.objects.get(id=1)
             start_index = netnumberdata.fixednumber
             end_index = netnumberdata.finalnumber
             outcome = get_outcome(end_index, start_index):
 
-            # Get current bettors
-            down_bettors = []
-            down_betsize = []
-            betdownManager = bettingdwon.objects.all()
-            for betdownObj in betdownManager:
-                down_bettors.append(betdownObj.userid)
-                down_betsize.append(betdownObj.betquota)
+            # Get current bettors that has placed their bet
+			up_bettors, up_betsize, down_bettors, down_betsize = extract_bettors()
 
-            up_bettors = []
-            up_betsize = []
-            betupManager = bettingup.objects.all()
-            for betupObj in betupManager:
-                up_bettors.append(betupObj.userid)
-                up_betsize.append(betupObj.betquota)
+			if outcome == "UP":
+				win_bet = up_betsize.sum()
+				lose_bet = down_betsize.sum()
+			elif outcome == "DOWN":
+				win_bet = down_betsize.sum()
+				lose_bet = up_betsize.sum()
 
-                if outcome == "UP":
-                    win_bet = up_betsize.sum()
-                    lose_bet = down_betsize.sum()
-                elif outcome == "DOWN":
-                    win_bet = down_betsize.sum()
-                    lose_bet = up_betsize.sum()
+			# Create ghost, based on the bettors/outcome information
+			ghost_spawner = Cheater(outcome, win_bet, lose_bet, num_winners, num_losers)
+			ghost_spawner.deploy_ghost_to_server()
 
-                # Create
-                ghost_spawner = Cheater(outcome, win_bet, lose_bet, num_winners, num_losers)
-                ghost_spawner.deploy_ghost_to_server()
+			
+def extract_bettors():
+	"""Get current bettors from SQL that has placed their bet.
+		return 4 different list of 
+		[up_bettors, up_betsize, down_bettors, down_betsize]
+	"""
+	down_bettors = []
+	down_betsize = []
+	betdownManager = bettingdwon.objects.all()
+	for betdownObj in betdownManager:
+		down_bettors.append(betdownObj.userid)
+		down_betsize.append(betdownObj.betquota)
 
+	up_bettors = []
+	up_betsize = []
+	betupManager = bettingup.objects.all()
+	for betupObj in betupManager:
+		up_bettors.append(betupObj.userid)
+		up_betsize.append(betupObj.betquota)
+	
+	return up_bettors, up_betsize, down_bettors, down_betsize
 
-                # If at Game_End stage, we may reset
-    at_gamesEnd = str(redisdb.get('gamesEnd')) == "end"
-    if has_deployed and at_gamesEnd:
-        has_deployed = False
-
-    def get_outcome(end_index, start_index):
-        if end_index > start_index:
-            return "UP"
-        elif end_index < start_index:
-            return "DOWN"
-        elif end_index == start_index:
-            return "DRAW"
-        else
-            return 0
+def get_outcome(end_index, start_index):
+	"""Return UP DOWN or DRAW """
+	if end_index > start_index:
+		return "UP"
+	elif end_index < start_index:
+		return "DOWN"
+	elif end_index == start_index:
+		return "DRAW"
+	else
+		return 0
 
 
 class Cheater:
@@ -66,10 +79,8 @@ class Cheater:
     num_losers = 0
     min_betsize = 100.0
 
-
     def __init__(self):
         self.data = []
-
 
     def Cheater(self, outcome, win_bet, lose_bet, num_winners, num_losers):
         self.outcome = outcome
@@ -81,18 +92,19 @@ class Cheater:
     def get_min_winlose_size():
         """Get the optimal win/lose bet according to Golden Ratio
         """
-        bet_on_lose = min_betsize
-        bet_to_win = Math.ceil(bet_on_lose * self.win_bet / self.lose_bet)
+        adj_lose_bet = min_betsize
+        adj_win_bet = Math.ceil(adj_lose_bet * self.win_bet / self.lose_bet)
 
-        return bet_to_win, bet_on_lose
+        return adj_win_bet, adj_lose_bet
 
     def allocate_ghosts():
-        """ Return two dataframes, one for up-side ghost, one for down side
-        Dataframe is in (userid, telid, bet_size)
+        """ Return ghosts and with bet size that will satisfy Golden Rule
+		Return two dataframes, one for up-side ghost, one for down side
+        Dataframe is in (userid, telid, bet_size).		
         """
         min_bet_win, min_bet_lose = get_min_winlose_size()
 
-        # Make the winning side always integer
+        # Increase the winning size such that it is at least integer of lose bet
         min_bet_win = ceil(min_bet_win / min_bet_lose) * min_bet_lose
 
         # Randomize
@@ -103,10 +115,10 @@ class Cheater:
         bet_win = num_lost_ghost * min_bet_win
 
         # Create ghost characteristic
-        losers_df = suggest_split(bet_lose, num_lost_ghost)
+        losers_df = split_bet_across(bet_lose, num_lost_ghost)
 
         num_win_ghost = rand.range(1, 3)
-        winners_df = suggest_split(bet_win, num_win_ghost)
+        winners_df = split_bet_across(bet_win, num_win_ghost)
 
         # Convert to up/down
         if self.outcome == Outcome.UP
@@ -118,10 +130,50 @@ class Cheater:
 
         return ghost_up_df, ghost_down_df
 
+		
+	def split_bet_across(bet_amount, N):
+		"""Split bets across different ghosts.
+		Ensure each bet follow multiple of min_size
+		return DataFrame
+		"""		
+		# Sanity check
+		if round(bet_amount / min_size) - (bet_amount / min_size) > 0.00001:
+			raise ValueError("bet_amount not multiple of bet_amount")
+		else:
+			npiece = bet_amount / min_size
+		
+		# Split the piece
+		x = range(0, npiece)
+		index = random.sample(x, n - 1)
+		index = sorted(index)
+		index.append(npiece)
+
+		betsplit_ls = list(np.diff(np.array(index)))
+		betsplit_ls.append(index[0])
+		
+		betsplit_ls = [x * 100 for x in betsplit_ls]
+		
+		# Sanity check before sharing
+		if sum(betsplit_ls) == bet_amount:
+			return betsplit_ls
+		else:
+			raise ValueError("sum(betsplit_ls) == bet_amount")
+			
+		# Find ghost most suitable, append them to a dataframe
+		out_df = pd.DataFrame({'userid': [], 'telid': [], 'betquota': []})
+		for bet in betsplit_ls:
+			userid, telid  = find_most_suitable_ghost(bet)
+			tempdf = pd.DataFrame({'userid': [userid], 'telid': [telid], 'betquota': [bet]})
+			out_df = out_df.append(tempdf)
+			
+		return out_df
+		
 
     def deploy_ghost_to_server():
+		# Extract the ghosts
         ghost_ups, ghost_downs = allocate_ghosts()
 
+		# Place them into server
         for x in ghost_ups:
             temp = bettingup.objects.filter(telid=x.telid)
             if temp.count() == 0:
