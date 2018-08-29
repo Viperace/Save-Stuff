@@ -78,6 +78,7 @@ class Cheater:
     num_winners = 0
     num_losers = 0
     min_betsize = 100.0
+	ghost_book = []
 
     def __init__(self):
         self.data = []
@@ -88,6 +89,13 @@ class Cheater:
         self.lose_bet = lose_bet
         self.num_winners = num_winners
         self.num_losers = num_losers
+		
+		# TODO: Example 
+		for i in range(0, 5):
+			curr_time = datetime.datetime.now().time()
+			a = pd.DataFrame({'userid': [i], 'telid': [123*i], 'preferred_size': [i*100+100], 'workhour_start': [curr_time], 'workhour_end': [curr_time]})
+			self.ghost_book = self.ghost_book.append(a)
+			
 
     def get_min_winlose_size():
         """Get the optimal win/lose bet according to Golden Ratio
@@ -167,6 +175,53 @@ class Cheater:
 			out_df = out_df.append(tempdf)
 			
 		return out_df
+		
+		
+	def find_most_suitable_ghost(betsize):
+		'''Function to search thru ghost_book and find most suitable ghost that would play this size, return TELID .
+			Factors that affect which ghost:
+				1) Current Time
+				2) Size
+			Different ghost has different appetite and might occur at different time etc
+		'''
+		# TODO: 
+		# Before ghost protocol begins, create/get the users in SQL first. Fall
+		# ghost_book = pd.DataFrame({'userid': [], 'telid': [], 'preferred_size': [], 'workhour_start': [], 'workhour_end': []})
+		
+		# Dictionary of ghost property
+		curr_time = datetime.datetime.now().time()
+		
+		# Score each ghost (lower = better)
+		score_dict = {'EMPTY': 100000000000}
+		for index, g in ghost_book.iterrows():
+			score = 0
+			
+			print g
+			# If within working hour
+			startHour = g['workhour_start']
+			endHour = g['workhour_end']
+			if curr_time >= startHour and curr_time <= endHour:
+				score += 0
+			else:
+				score += 10
+			
+			# If match sizes
+			diff = abs(math.log(float(g['preferred_size'])) - math.log(betsize))
+			score += diff
+			
+			# Save
+			telid_key = str(g['telid'])
+			if len(score_dict) == 0:
+				#score_dict = dict(telid_key=score)
+				#score_dict = {g, score}
+				score_dict = {telid_key: score}
+			else:
+				score_dict[telid_key] = score
+			
+		# Get min score telid
+		best_candidiate_telid = str(min(score_dict, key=score_dict.get))
+
+		return best_candidiate_telid
 		
 
     def deploy_ghost_to_server():
