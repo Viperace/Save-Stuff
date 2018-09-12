@@ -74,7 +74,14 @@ def get_userid_from_telid(telid):
 		print "Error finding telid of user " + str(telid)
 		return None
 
-		
+
+def reward_screen_keyboard(chat_id, update):
+    keyboard = [[InlineKeyboardButton(unquote("Invitation Code"), callback_data='xzxzxz'), ],
+                [InlineKeyboardButton("Check/Redeem Reward", callback_data='claim_reward')]
+				]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    update.message.reply_text('Invite Friends:', reply_markup=reply_markup, )
+
 
 # Method X - NO USE 
 def downline_user_start():
