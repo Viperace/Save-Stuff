@@ -16,19 +16,24 @@ https://pypi.org/project/phone-iso3166/
 
 # Game Rules
 
-The 
+[Game Rules]
+Each round of Bitcoin Fun lasts for 5 minutes. Result is announced and prizes are awarded at 3 minutes mark, follow by 2 minutes of rest. To win the prize, place your bet on the 3-minute direction of Bitcoin price (with reference to USD), whether it is up or down.
 
-【游戏规则】
-比特娱乐每五分钟一期，全天24小时不停开放。 第3分钟开奖，休息2分钟。预测比特币官网指数在未来三分钟的趋势，上或下。
+[Result, Prize & Odds]
+✓ When the round begins, the bot will read the Bitcoin price from official website. On the result announcement at 3 minutes mark, the bot will read the Bitcoin price again. If the latter Bitcoin price is higher, then result is announced as "UP"; if lower, then the result is announced as "DOWN"; if the price is exactly same as the earlier price, then the result is "DRAW".
+✓ Player can bet UP or DOWN.
+✓ The odds is dynamic and is based on the number of players. In short, the winning side take all the bets from the losing side. The odds are computed as "total loser's bet divided by total winner's bet".  
+✓ The house commission is 3%
+✓ If the result is DRAW, all bets are returned to all players
+✓ If one side (either UP or DOWN) has no bets at all, then the round is void. All bets are returned to all players
 
-【开奖，赔率】
-✓ 每期开局时，机器人读取官方网站的比特币对美金指数。开奖时，再次读取此指数。若开奖指数高于开局指数，开奖结果为〔上〕，低于为〔下〕，同等为〔平〕。
-✓ 玩家可任意下注〔上〕或〔下〕。
-✓ 中奖赔率随玩家人数而变。赔率计算为“无中奖家总注码”除于“中奖家总注码”。
-✓ 庄家抽成为奖金的3%
-✓ 若开奖结果为〔平〕，原价退还所有玩家注码
-✓ 若任何一边〔上〕或〔下〕无玩家下注，此局无效，原价退还所有玩家注码
+[Trust & Validation]
+✓✓ Bitcoin Fun only report official Bitcoin price, which is sourced from coindesk. Its Bitcoin price refreshed every 15 seconds, 24 hours a day. Player may visit the website to cross check with our reported Bitcoin price (look for Data->Bitcoin price index)
+✓✓ Bitcoin Fun serves as a gaming platform to facilitate player's view on the short term Bitcoin price movement. We set the game rule fairly and equally.
 
-【认证与公信】
-✓ 比特娱乐采取的比特币指数是从官网coindesk抽取。数字每15秒更新，24小时不断。玩家可到主页认证（请注意查询Bitcoin大字）。
-✓ 比特娱乐设置机器人赌博平台，作为庄家，公平公正为玩家提供比特币数字的短期动态的玩法。
+
+
+# Advance Tips & Tricks
+✓ Player can bet on both UP and DOWN, you are not restricted to one side! If the odds turn out to be greater than one, this strategy will win
+✓ When very few players are in the game, 
+
