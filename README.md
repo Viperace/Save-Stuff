@@ -13,3 +13,7 @@ https://stackoverflow.com/questions/49705047/downloading-mutliple-stocks-at-once
 # Phone code to country
 https://pypi.org/project/phone-iso3166/
 
+
+# Game Rules
+
+The 
