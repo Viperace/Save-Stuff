@@ -28,7 +28,7 @@ Each round of Bitcoin Fun lasts for 5 minutes. Result is announced and prizes ar
 ✓ If one side (either UP or DOWN) has no bets at all, then the round is void. All bets are returned to all players
 
 [Trust & Validation]
-✓✓ Bitcoin Fun only report official Bitcoin price, which is sourced from coindesk. Its Bitcoin price refreshed every 15 seconds, 24 hours a day. Player may visit the website to cross check with our reported Bitcoin price (look for Data->Bitcoin price index)
+✓✓ Bitcoin Fun only use official Bitcoin price, which is sourced from coindesk. Its Bitcoin price refreshed every 15 seconds, 24 hours a day. Player may visit the website to cross check with our reported Bitcoin price (look for Data->Bitcoin price index)
 ✓✓ Bitcoin Fun serves as a gaming platform to facilitate player's view on the short term Bitcoin price movement. We set the game rule fairly and equally.
 
 
