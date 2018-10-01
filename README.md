@@ -38,7 +38,7 @@ Each round of Bitcoin Fun lasts for 5 minutes. Result is announced and prizes ar
 ✓ When very few players are in the game, chances of draw is high. Chances of you winning the other players are also high.
 ✓ When many players are in the game, you may bet on both UP and DOWN side with equal bets. You will be rewarded if the minority side win
 ✓ You can check out the Bitcoin index graph in coindesk website to speculate which direction it will move
-✓ Minimum bet is 100 x-coin with limit on maximum. The rule applies to all players
+✓ Minimum bet is 100 x-coin with limit on maximum. Therefore, there is no limit on the maximum possible odds. It is possible to win over all the other players' bet in one round.
 ✓ If you use mobile phone, check out our VPN service for free tunnelling. Goto Homepage -> VPN
 ✓ Invite friends using our invite link to earn free x-coin. Goto Homepage -> Invite Friends
 
