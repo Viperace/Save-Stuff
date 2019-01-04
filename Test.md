@@ -25,3 +25,38 @@ testinfo = {
 }
 
 
+def getrun(value):
+    # +86这里我是填中国你可以填新加坡的
+    print('+86' + str(value[0]))
+    print('>>>>loading...')
+    try:
+
+        client = TelegramClient(*value)
+
+        print('>>>>ok...')
+        if not client.is_user_authorized():
+            print('>>>> client  not !')
+            raise
+        #核心代码就是这个位置.你可以用这个方法去接收任意群的消息 我用的是同步方法.有异步方法.我不会用.
+        #这里可以获取群或用户发给你的数据这里的意思是 只接收最后10条
+        for message in client.iter_messages('群名称',limit=10):
+
+            time.sleep(2)
+            print(message)
+
+    except Exception as e:
+        print(e)
+    finally:
+
+        client.disconnect()
+
+
+
+
+
+
+if __name__ == '__main__':
+    for userkey, userdatavlue in testinfo.items():
+        getrun(userdatavlue)
+
+
