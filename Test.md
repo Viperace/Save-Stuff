@@ -20,7 +20,7 @@ testinfo = {
 # https://my.telegram.org/apps
 #电话号码,电话号码,api ,key
     '17130604752': ('1713060475?', 0000000, 'Xd3d13319472fd1ed0a6db24a22c2a28'),
-
+d73f90d14f8a78531845692ec93f7562
 
 }
 
