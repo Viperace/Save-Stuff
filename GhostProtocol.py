@@ -20,7 +20,7 @@ import telethon.sync
 loop = asyncio.get_event_loop()
 
 # *********************************************
-# VH: New method
+# VH: Aysnc method to loop message
 async def myjob(client):
   async for message in client.iter_messages('gamesoftboy',limit=10):
     await asyncio.sleep(1)
@@ -31,7 +31,7 @@ testinfo = {
 # 申请api接口
 # https://my.telegram.org/apps
 #电话号码,电话号码,api ,key
-    '91094016': ('91094016', 320645, 'd73f90d14f8a78531845692ec93f7562'),
+    '91094016': ('91094016', 12345, 'd73xd14f8a78xcfr5692ec93f19'),
 }
 
 
@@ -41,22 +41,17 @@ def getrun(value):
     print('>>>>loading...')
     try:
         #client = TelegramClient(*value)
-        api_id = 320645
-        api_hash = 'd73f90d14f8a78531845692ec93f7562'
+        api_id = 12345
+        api_hash = 'd73xd14f8a78xcfr5692ec93f19'
         client = TelegramClient('TestSession', api_id, api_hash).start()
 
         print('>>>>ok...')
         if not client.is_user_authorized():
             print('>>>> client  not !')
             raise
-        #核心代码就是这个位置.你可以用这个方法去接收任意群的消息 我用的是同步方法.有异步方法.我不会用.
-        #这里可以获取群或用户发给你的数据这里的意思是 只接收最后10条
 
-        print('retreiving async...')
-        #for message in client.iter_messages('gamesoftboy',limit=10):
-        #    time.sleep(2)
-        #    print(message)
         # *********************************************
+        print('retreiving async...')        
         loop.run_until_complete(myjob(client))
         
 
