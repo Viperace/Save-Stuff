@@ -1,0 +1,34 @@
+VBA Cheatsheet
+
+LAST ROW
+	LastRow = Cells(sht.Rows.Count, "A").End(xlUp).Row
+
+ARRAY
+	'Method 1 : Using Dim
+	Dim arr1()	'Without Size
+
+	'Method 2 : Mentioning the Size
+	Dim arr2(5)  'Declared with size of 5
+
+	'Method 3 : using 'Array' Parameter
+	Dim arr3
+	arr3 = Array("apple","Orange","Grapes")
+	
+DYNAMIC
+	Dim x() As Variant
+    ReDim x(0)
+	For i = 1 To 10
+	   ReDim Preserve x(0 To UBound(x) + 1)
+	   x(UBound(x)) = 123
+	Next
+
+DYNAMIC 2D
+	Dim StrikeMatrix()
+    ReDim Preserve StrikeMatrix(1 To UBound(volDates, 1), 1 To 5)	
+	
+Disable Alert	
+Application.DisplayAlerts = False
+
+CONVERT COLUMN NUMBEr to Alphabet
+	colChar = Split(Cells(1, colIndexNum).Address, "$")(1)
+
