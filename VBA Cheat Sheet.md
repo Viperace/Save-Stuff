@@ -1,9 +1,9 @@
-VBA Cheatsheet
+#VBA Cheatsheet
 
-LAST ROW
+#LAST ROW
 	LastRow = Cells(sht.Rows.Count, "A").End(xlUp).Row
 
-ARRAY
+#ARRAY
 	'Method 1 : Using Dim
 	Dim arr1()	'Without Size
 
@@ -14,17 +14,17 @@ ARRAY
 	Dim arr3
 	arr3 = Array("apple","Orange","Grapes")
 	
-DYNAMIC
+#DYNAMIC
 	Dim x() As Variant
-    ReDim x(0)
+    	ReDim x(0)
 	For i = 1 To 10
 	   ReDim Preserve x(0 To UBound(x) + 1)
 	   x(UBound(x)) = 123
 	Next
 
-DYNAMIC 2D
+#DYNAMIC 2D
 	Dim StrikeMatrix()
-    ReDim Preserve StrikeMatrix(1 To UBound(volDates, 1), 1 To 5)	
+   	ReDim Preserve StrikeMatrix(1 To UBound(volDates, 1), 1 To 5)	
 	
 Disable Alert	
 Application.DisplayAlerts = False
