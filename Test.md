@@ -28,3 +28,15 @@ garch@fit$coef
 garch@fit$sigma
 garch@fit$z
 
+
+
+#### IDea ####
+- Fix closing method
+  - Once open at 0.05, wait till it reaches 0.5 before close
+  - Stop loss
+  - Time stop
+
+- Use Garch
+
+
+
