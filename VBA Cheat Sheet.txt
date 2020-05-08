@@ -31,4 +31,8 @@ Application.DisplayAlerts = False
 
 CONVERT COLUMN NUMBEr to Alphabet
 	colChar = Split(Cells(1, colIndexNum).Address, "$")(1)
+	
+#FIND STRING
+	InStr("Don't Look in this string", "Look")
+	Instr( [start], string, substring, [compare] )
 
