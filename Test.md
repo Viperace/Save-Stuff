@@ -1,42 +1,16 @@
-https://datascienceplus.com/modelling-dependence-with-copulas/
+http://shashiasrblog.blogspot.com/2013/10/vba-front-end-for-r.html
 
-https://www.r-bloggers.com/how-to-fit-a-copula-model-in-r-heavily-revised-part-2-fitting-the-copula/
+Call R from VBA, and get R console output
 
-https://stats.stackexchange.com/questions/90283/how-to-find-conditional-probability-pxxy-y-using-copulas
-
-
-require(rugarch)
-
-data <- rnorm(1000)
-
-plot(data)
-  
-spec <- ugarchspec(variance.model = list(model = "sGARCH", 
-                                         garchOrder = c(1, 1), 
-                                         submodel = NULL, 
-                                         external.regressors = NULL, 
-                                         variance.targeting = FALSE), 
-                   
-                   mean.model = list(armaOrder = c(1, 1), 
-                                         external.regressors = NULL, 
-                                         distribution.model = "norm", 
-                                         start.pars = list(), 
-                                         fixed.pars = list()))
-
-garch <- ugarchfit(spec = spec, data = data, solver.control = list(trace=0))
-garch@fit$coef
-garch@fit$sigma
-garch@fit$z
+file:///C:/Users/v922471/Downloads/ExcelApiBeginners.pdf
 
 
+IBkR to check
+- Pull prices of V, MA
+- Pull transacted volume
+- Bid/ask prices
+- Bid/ask volume
+- Execute MOC order, buy/sell, qty
 
-#### IDea ####
-- Fix closing method
-  - Once open at 0.05, wait till it reaches 0.5 before close
-  - Stop loss
-  - Time stop
-
-- Use Garch
-
-
-
+Excel
+- Pull current time
