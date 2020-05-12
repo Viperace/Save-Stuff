@@ -36,3 +36,14 @@ CONVERT COLUMN NUMBEr to Alphabet
 	InStr("Don't Look in this string", "Look")
 	Instr( [start], string, substring, [compare] )
 
+#TIME BASED EVENT LISTENER
+	'To initialize, do this. Then "EventMacro" will always be called
+	alertTime = Now + TimeValue("00:02:00")
+	Application.OnTime alertTime, "EventMacro"
+
+	Public Sub EventMacro()
+	    '... Execute your actions here'
+	    alertTime = Now + TimeValue("00:02:00")
+	    Application.OnTime alertTime, "EventMacro"
+	End Sub
+
