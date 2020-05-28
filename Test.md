@@ -10,5 +10,5 @@ Zhi (2017)
 https://efmaefm.org/0EFMAMEETINGS/EFMA%20ANNUAL%20MEETINGS/2017-Athens/papers/EFMA2017_0385_fullpaper.pdf
 
 
-datetime.now(pytz.utc)
-datetime.datetime(2007, 12, 6, 15, 29, 43, 79060, tzinfo=datetime.timezone.utc)
+tz = pytz.timezone("Singapore")
+datetime.datetime.now(tz) > datetime.datetime(2020, 5, 28, 7, 9, tzinfo=tz)
