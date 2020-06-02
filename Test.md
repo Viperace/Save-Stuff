@@ -18,3 +18,13 @@ from dateutil.tz import gettz
 tz = gettz("America/New_York")
 closeTime = dt.datetime(2020, 6, 2, 16,00, tzinfo=tz)
 closeTime - dt.datetime.now(tz)
+
+
+# Define Trading day and Execution time
+trading_day = str(dt.datetime.now(tz))[0:10]
+yyyy = int(trading_day[0:4])
+mm = int(trading_day[6:7])
+dd = int(trading_day[9:10])
+signal_time = dt.datetime(yyyy, mm, dd, 15, 43, tzinfo=tz)
+execution_time = dt.datetime(yyyy, mm, dd, 15, 44, tzinfo=tz)
+stop_time =  dt.datetime(yyyy, mm, dd, 16, 5, tzinfo=tz)
