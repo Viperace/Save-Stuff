@@ -14,4 +14,7 @@ tz = pytz.timezone("Singapore")
 datetime.datetime.now(tz) > datetime.datetime(2020, 5, 28, 7, 9, tzinfo=tz)
 
 # test
-w)cn3Q>/=A6H9TR
+from dateutil.tz import gettz
+tz = gettz("America/New_York")
+closeTime = dt.datetime(2020, 6, 2, 16,00, tzinfo=tz)
+closeTime - dt.datetime.now(tz)
