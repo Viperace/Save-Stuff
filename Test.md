@@ -21,10 +21,14 @@ closeTime - dt.datetime.now(tz)
 
 
 # Define Trading day and Execution time
-trading_day = str(dt.datetime.now(tz))[0:10]
-yyyy = int(trading_day[0:4])
-mm = int(trading_day[6:7])
-dd = int(trading_day[9:10])
-signal_time = dt.datetime(yyyy, mm, dd, 15, 43, tzinfo=tz)
-execution_time = dt.datetime(yyyy, mm, dd, 15, 44, tzinfo=tz)
-stop_time =  dt.datetime(yyyy, mm, dd, 16, 5, tzinfo=tz)
+Dear Sir/Madam,
+
+I have an outstanding bill that I wish KKH to file with my Insurer Prudential.
+
+The claim is for my son, LIEW ZI XUAN (birth cert: T1926457I), who was admitted for 1 night, and discharged on 21 Feb 2020
+The Invoice #7620007898J, total amount $437.35. 
+
+I have checked with my insurer, who advise that KKH should file the claim directly to them. Please advise if you are able to do so?
+
+Best Regards,
+Voon Hooi
