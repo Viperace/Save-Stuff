@@ -40,3 +40,19 @@ https://efmaefm.org/0EFMAMEETINGS/EFMA%20ANNUAL%20MEETINGS/2017-Athens/papers/EF
 	#slippageB = sum(tx_Px - close_Px)
 	slippageA = (tx_Px - ibkr_Px)*Na - (tx_Px - ibkr_Px)*Nb
 
+# Example
+	# End Time. Put 3:59pm	
+	queryTime = (datetime.datetime.today() - datetime.timedelta(days=180)).strftime("%Y%m%d %H:%M:%S")
+
+	# Put in Class
+	self.reqHistoricalData(4103, ContractSamples.EuropeanStock(), queryTime,   
+	   "300 S", "1 min", "MIDPOINT", 1, 1, False, [])
+
+	def historicalDataUpdate(self, reqId: int, bar: BarData):
+		print("HistoricalDataUpdate. ReqId:", reqId, "BarData.", bar)
+		
+	if reqId == 4103:
+		print("HistoricalDataEnd. ReqId:", reqId, "BarData", bar)
+		# Save to DataManager
+		ticker = request_dictionary[reqId]
+		data_manager.save(ticker, bar)
