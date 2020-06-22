@@ -58,4 +58,10 @@ https://efmaefm.org/0EFMAMEETINGS/EFMA%20ANNUAL%20MEETINGS/2017-Athens/papers/EF
 
 # Further Idea
 - Get also VWAP for 3:59:01 to 3:59:59, available for TRADES request
+- VWAP consider the whole 1min volume. But, MID is only a snapshot.
+- Backtesting is based on close of the entire minute, and also works for 1 minute earlier at 3:58.
+
+What is slippage?
+- Signal generated VS actual traded 
+- Traded VS data provided price.
 
