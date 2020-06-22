@@ -24,12 +24,12 @@ https://efmaefm.org/0EFMAMEETINGS/EFMA%20ANNUAL%20MEETINGS/2017-Athens/papers/EF
 
 	Ticker Breakdown
 	--------------------------------------------------------
-	Ticker	IB		Tx		Diff 	Qty		Slippage	YTD
+	Ticker	IB	Tx	Diff 	Qty		Slippage	YTD
 	--------------------------------------------------------
 	MSFT	233.15	233.00	0.15	50		-$10.05
-	V		188.29	189.11	-0.33	33		-$3.6
+	V	188.29	189.11	-0.33	33		-$3.6
 	...
-	MA		53.1	53.0	0.1		121		+$5.0
+	MA	53.1	53.0	0.1	121		+$5.0
 
 # Algorithm
 - Pull IBKR price,	ibkr_Px (or Google Finance)
@@ -46,13 +46,16 @@ https://efmaefm.org/0EFMAMEETINGS/EFMA%20ANNUAL%20MEETINGS/2017-Athens/papers/EF
 
 	# Put in Class
 	self.reqHistoricalData(4103, ContractSamples.EuropeanStock(), queryTime,   
-	   "300 S", "1 min", "MIDPOINT", 1, 1, False, [])
+	   "300 S", "1 min", "MIDPOINT", 1, 1, False, [])  # <- one time basis
 
 	def historicalDataUpdate(self, reqId: int, bar: BarData):
-		print("HistoricalDataUpdate. ReqId:", reqId, "BarData.", bar)
-		
-	if reqId == 4103:
-		print("HistoricalDataEnd. ReqId:", reqId, "BarData", bar)
-		# Save to DataManager
-		ticker = request_dictionary[reqId]
-		data_manager.save(ticker, bar)
+		if reqId == 4103:
+			print("historicalDataUpdate. ReqId:", reqId, "BarData", bar)
+			# Save to DataManager
+			ticker = request_dictionary[reqId]
+			data_manager.save(ticker, bar)
+
+
+# Further Idea
+- Get also VWAP for 3:59:01 to 3:59:59, available for TRADES request
+
