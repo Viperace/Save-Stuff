@@ -9,26 +9,34 @@ https://www.econstor.eu/bitstream/10419/125514/1/844416606.pdf
 Zhi (2017)
 https://efmaefm.org/0EFMAMEETINGS/EFMA%20ANNUAL%20MEETINGS/2017-Athens/papers/EFMA2017_0385_fullpaper.pdf
 
+# Target Slippage Report looks like this
+	--------------------------------------------------------
+	Pair Slippage		YTD
+	--------------------------------------------------------
+	Pair 1	-$10.05		
+	Pair 2	-$3.6
+	...
+	Pair 5	+$5.0
+	========================================================	
+	TOTAL	-$5
+	--------------------------------------------------------
+	
 
-tz = pytz.timezone("Singapore")
-datetime.datetime.now(tz) > datetime.datetime(2020, 5, 28, 7, 9, tzinfo=tz)
+	Ticker Breakdown
+	--------------------------------------------------------
+	Ticker	IB		Tx		Diff 	Qty		Slippage	YTD
+	--------------------------------------------------------
+	MSFT	233.15	233.00	0.15	50		-$10.05
+	V		188.29	189.11	-0.33	33		-$3.6
+	...
+	MA		53.1	53.0	0.1		121		+$5.0
 
-# test
-from dateutil.tz import gettz
-tz = gettz("America/New_York")
-closeTime = dt.datetime(2020, 6, 2, 16,00, tzinfo=tz)
-closeTime - dt.datetime.now(tz)
+# Algorithm
+- Pull IBKR price,	ibkr_Px (or Google Finance)
+  []
+- Pull executed prices , tx_Px (and qty, Na, Nb)
+  [Reporter] should have this
+- Compare price, per pair 
+	#slippageB = sum(tx_Px - close_Px)
+	slippageA = (tx_Px - ibkr_Px)*Na - (tx_Px - ibkr_Px)*Nb
 
-
-# Define Trading day and Execution time
-Dear Sir/Madam,
-
-I have an outstanding bill that I wish KKH to file with my Insurer Prudential.
-
-The claim is for my son, LIEW ZI XUAN (birth cert: T1926457I), who was admitted for 1 night, and discharged on 21 Feb 2020
-The Invoice #7620007898J, total amount $437.35. 
-
-I have checked with my insurer, who advise that KKH should file the claim directly to them. Please advise if you are able to do so?
-
-Best Regards,
-Voon Hooi
