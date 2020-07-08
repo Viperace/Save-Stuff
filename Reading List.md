@@ -13,3 +13,12 @@ Heston et al
 # An Improved Pairs Trading Strategy Based on Switching Regime Volatility
 https://alphaedge.io/trading-strategies/momentum-investing/Tactical-Pair-Switching/
 https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2636212
+
+# Cross Asset Rotation
+https://www.man.com/maninstitute/dissecting-investment-strategies-in-the-cross-section-and-time-series
+
+# Pair Switching
+https://www.quantconnect.com/tutorials/strategy-library/paired-switching
+
+# Sentiment and Style Rotation Effect in Stocks
+https://www.quantconnect.com/tutorials/strategy-library/sentiment-and-style-rotation-effect-in-stocks
