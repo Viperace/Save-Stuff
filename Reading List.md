@@ -10,3 +10,6 @@ Bollersev et al(2018)
 Heston et al
 - Cross section time is cyclical
 
+# An Improved Pairs Trading Strategy Based on Switching Regime Volatility
+https://alphaedge.io/trading-strategies/momentum-investing/Tactical-Pair-Switching/
+https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2636212
