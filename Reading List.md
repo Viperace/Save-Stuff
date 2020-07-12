@@ -35,6 +35,15 @@ Signal:
 	-> Use Sigma from MixGaussian model.
 
 
+CONCLUSION:
+- As paper show, this is too good to be true
+- Even without the Volatility Regime, the base strategy is crazily profitable. Problem is BID/ASK, and commission not taken into account
+- Tried on V/MA, PEP/K, works on 5m interval like a charm
+- By extending to 30m, with overnight holding, this strategy fails
+- Adding 5bps Bid/ask and 0.005 commission, its not profitable
+- No point trying the Vol Regime Shifting, knowing the base strategy fails
+
+
 
 # Cross Asset Rotation
 https://www.man.com/maninstitute/dissecting-investment-strategies-in-the-cross-section-and-time-series
