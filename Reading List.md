@@ -1,10 +1,21 @@
 
+# Machine Learning
+- Review paper: 
+Shah et al, "Stock Market Analysis: A Review and Taxonomy of Prediction Techniques"
+https://www.mdpi.com/2227-7072/7/2/26/pdf
+
+
 # Intraday pattern
 
 
 # Good Volatility, Bad Volatility, and the Cross Section of Stock Returns
 Bollersev et al(2018)
 - Good/Bad voliatlity can predict movement
+
+Review:
+- My backtest is showing INVERSE result of the paper. Skewness score is PROPORTIONATE to next week return
+- Weekly reversal is also proportionate to next week return
+
 
 # Intraday Patterns in the Cross-section of Stock Return
 Heston et al
