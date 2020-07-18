@@ -1,3 +1,11 @@
+# Alternative Data List
+- TipRanks (Blogger sentiment)
+- TRESS, (TipRanks and ExtractAlpha)
+- alpha-DNA  (web sentiment)
+- Sandalwood Advisors (Tmall transactional data)
+- CFPB (US Consumer Financial Protection Bureau) consumer complaint
+
+
 
 # Machine Learning
 - Review paper: 
