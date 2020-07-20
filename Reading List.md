@@ -12,6 +12,8 @@
 Shah et al, "Stock Market Analysis: A Review and Taxonomy of Prediction Techniques"
 https://www.mdpi.com/2227-7072/7/2/26/pdf
 
+- LSTM Example
+http://rwanjohi.rbind.io/2018/04/05/time-series-forecasting-using-lstm-in-r/
 
 # Intraday pattern
 
