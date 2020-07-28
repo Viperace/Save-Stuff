@@ -15,6 +15,11 @@ https://www.mdpi.com/2227-7072/7/2/26/pdf
 - LSTM Example
 http://rwanjohi.rbind.io/2018/04/05/time-series-forecasting-using-lstm-in-r/
 
+
+# Machine Learning in Asset Management
+- Practitioner, code, references
+https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3420952
+
 # Intraday pattern
 
 
@@ -74,5 +79,12 @@ https://www.quantconnect.com/tutorials/strategy-library/paired-switching
 
 # Sentiment and Style Rotation Effect in Stocks
 https://www.quantconnect.com/tutorials/strategy-library/sentiment-and-style-rotation-effect-in-stocks
+
+# Dissecting Investment Strategies in the Cross Section and Time Series
+Baz et al, "Dissecting Investment Strategies in the Cross Section and Time Series" (2015)
+https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2695101
+
+- GTAA with Sharpe ratio 1.8
+- Rotate across Eq, Comm, FX, IR
 
 
