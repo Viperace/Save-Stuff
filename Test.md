@@ -12,6 +12,8 @@ https://efmaefm.org/0EFMAMEETINGS/EFMA%20ANNUAL%20MEETINGS/2017-Athens/papers/EF
 # Beautiful soup
 https://stackoverflow.com/questions/33538600/how-to-automatically-download-the-files-that-have-a-download-button-on-a-webpage
 
+https://towardsdatascience.com/https-towardsdatascience-com-how-to-download-files-in-a-lightning-speed-a8e8dcc694f7
+
 
 # Target Slippage Report looks like this
 	--------------------------------------------------------
