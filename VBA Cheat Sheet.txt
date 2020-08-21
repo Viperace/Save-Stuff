@@ -33,7 +33,7 @@ CONVERT COLUMN NUMBEr to Alphabet
 	colChar = Split(Cells(1, colIndexNum).Address, "$")(1)
 	
 #FIND STRING
-	InStr("Don't Look in this string", "Look")
+	InStr("Don't Look in this string", "Look") <> 0   ' Match will return none zero
 	Instr( [start], string, substring, [compare] )
 
 #TIME BASED EVENT LISTENER
