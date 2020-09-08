@@ -5,6 +5,8 @@
 - Sandalwood Advisors (Tmall transactional data)
 - CFPB (US Consumer Financial Protection Bureau) consumer complaint
 
+- Citi Economic Surprise Index (Bloomberg only ?)
+- China SSE Volatility Index
 
 
 # Machine Learning
