@@ -1,3 +1,11 @@
+Shannon Entropy
+Entropy will always goes larger. 
+At time T, compute two possible Entropy for T+1 by assuming price Up and price down (or 4 casees for two time-steps case, UpUp, DnDn, UpDn, DnUp).
+If Entropy (for price up) is larger, then long it.
+(The code in the site is showing opposite direction however)
+https://robotwealth.com/shannon-entropy/
+
+
 Multi-variate Copula trading
 https://www.econstor.eu/bitstream/10419/147450/1/870932616.pdf
 
