@@ -1,3 +1,28 @@
+
+CRO
+Stephane, new sg, march, trader
+head of risk - CS
+
+2 team
+	1. Data sc
+	2. cybersecurity
+	3. Two person left...
+
+what has job scope chg
+
+
+* Standalone 
+showcase, 
+
+* Test
+
+* MFE, phd
+
+Mature candidate, can help
+
+How do he help u better...
+
+
 # Wages
 	Salary1 - CPF	Salary1	Salary2	Base Ann	Bonus	 Tax 	
 							
