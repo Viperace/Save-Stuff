@@ -1,47 +1,7 @@
-
-CRO
-Stephane, new sg, march, trader
-head of risk - CS
-
-2 team
-	1. Data sc
-	2. cybersecurity
-	3. Two person left...
-
-what has job scope chg
-
-
-* Standalone 
-showcase, 
-
-* Test
-
-* MFE, phd
-
-Mature candidate, can help
-
-How do he help u better...
-
-
-# Wages
-	Salary1 - CPF	Salary1	Salary2	Base Ann	Bonus	 Tax 	
-							
-2015	7703	 9,629 			 40,000 		
-2016	9186	 10,186 			 44,000 		
-2017	9453	 10,453 			 48,186 	 175,243 	
-2018	9653	 10,653 			 39,160 	 180,098 	
-2019		 13,000 				 190,749 	
-2020		 13,000 					
-							
-							
-		Average Monthly /12m basis	 Bonus 	Remark	Annual Total		
-	2015	 9,600 		DBS Annual Bonus	 115,200 		
-	2016	 10,100 	 44,000 	DBS Annual Bonus	 165,200 		
-	2017	 10,400 	 45,000 	DBS Annual Bonus	 169,800 		
-	2018	 10,876 	 43,000 	DBS Annual Bonus	 173,512 		
-	2019	 13,000 	 30,000 	Cargill Sign-on Bonus	 186,000 		
-	2020	 13,000 	 67,000 	Cargill AnnualBonus	 223,000 		
-	2020*	 14,500 					
+Asset
+https://www.gamedevmarket.net/asset/isometric-world/
+https://www.gamedevmarket.net/asset/free-isometric-voxelart-enviroment-vegetation-trees-and-rocks/
+https://www.gamedevmarket.net/asset/briefquest-sprite-pack/
 
 
 
