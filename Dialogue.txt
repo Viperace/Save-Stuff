@@ -10,7 +10,7 @@ Castle name:
 - Every man and woman in the world who knows about [em1]Card Duel[/em1], knows our village - Sunheim. 
 - Listen well. Every kill will give you Experience Point - XP. XP is best spent to upgrade your Mana pool and Mana regeneration.
 - However, if you are overwhelmed, you could spent XP to summon backup troops and cast very strong spell.
-- Let's see what you have learned. I will use my just two cards to duel you.
+- Let's see what you have learned. I will use just two cards to duel you.
 
 - Preparing your deck wins half the battle.
 
@@ -20,11 +20,10 @@ Castle name:
 
 # Esyc
 -- Block main path out of the village Sunheim. Beat him to get out
-- Where do you think you are going? This village is in lockdown, in fact everywhere is in lockdown. 
-- As the elite [em1]Card Duelist[/em1] in the village, I need to guard the village from the Great Plague. 
-- No one gets in or out without my permission.
+- Where do you think you are going? The village is in lockdown, in fact everywhere is in lockdown. 
+- As the elite [em1]Card Duelist[/em1] in the village, I need to guard us from the Great Plague. No one gets in or out without my permission.
 - Complete your training with Trainer Umrel and Trainer _____ , then perhaps I could let you out. 
-
+- Congratulations in beating the trainers. You have trained well, go forth and bring glory to Sunheim.
 
 # Marle
 -- Filler NPC
