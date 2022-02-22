@@ -1,0 +1,30 @@
+Village name: Sunheim
+Castle name: 
+
+# Trainer Umnel
+- Povide advance training to the player
+
+- Get your arse here before I raise my whip.
+- I will teach you the advance way of the [em1]Card Duel[/em1]. 
+- Every man and woman in Sunheim can [em1]Card Duel[/em1] in their sleep! Live up to our village reputation !
+- Every man and woman in the world who knows about [em1]Card Duel[/em1], knows our village - Sunheim. 
+- Listen well. Every kill will give you Experience Point - XP. XP is best spent to upgrade your Mana pool and Mana regeneration.
+- However, if you are overwhelmed, you could spent XP to summon backup troops and cast very strong spell.
+- Let's see what you have learned. I will use my just two cards to duel you.
+
+- Preparing your deck wins half the battle.
+
+# Gasson
+- I used to be a [em1]Card Duelist[/em1] like you. Then, I took an arrow on the knee.
+- My prized cards was robbed ... I vowed not to play arrow Card ever again. 
+
+# Esyc
+-- Block main path out of the village Sunheim. Beat him to get out
+- Where do you think you are going? This village is in lockdown, in fact everywhere is in lockdown. 
+- As the elite [em1]Card Duelist[/em1] in the village, I need to guard the village from the Great Plague. 
+- No one gets in or out without my permission.
+- Complete your training with Trainer Umrel and Trainer _____ , then perhaps I could let you out. 
+
+
+# Marle
+-- Filler NPC
